@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body{
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+            padding: 10px;
+            gap: 10px;
+        }
+        .image{
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            display: block;
+
+        }
+        .item{
+            padding:10px;
+            border:1px solid #eee;
+            overflow: hidden;
+            position: relative;
+
+        }
+        .rating{
+            position: absolute;
+            top:3px;
+            right: 15px;
+            display: none;
+          
+        }
+        .rating::after{
+            content: '⭐';
+        }
+        .item:hover .image{
+            transform:scale(1.1);
+            transition: 0.6s ease;
+        }
+        .description{
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis
+        }
+        .text{
+            font-weight: 600;
+            text-align: center;
+        }
+        .text>span::before{
+            content: "₹";
+        }
+        .text>span{
+            color: green;
+        }
+        .item:hover .rating{
+           display: block; 
+        }
+          
+
+        .loader {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: rotate(45deg);
+    overflow: hidden;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+  }
+  .loader:after{
+    content: '';
+    position: absolute;
+    inset: 8px;
+    margin: auto;
+    background: #222b32;
+  }
+  .loader:before{
+    content: '';
+    position: absolute;
+    inset: -15px;
+    margin: auto;
+    background: #de3500;
+    animation: diamondLoader 2s linear infinite;
+  }
+  @keyframes diamondLoader {
+    0%  ,10% {
+      transform: translate(-64px , -64px) rotate(-45deg)
+    }
+    90% , 100% {
+      transform: translate(0px , 0px) rotate(-45deg)
+    }
+  }
+
+        
+
+    </style>
+</head>
+<body>
+    <span class="loader" id="loader"></span>
+    
+
+
+
+
+
+    <script src="./db.js"></script>
+</body>
+</html>
