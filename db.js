@@ -2,10 +2,12 @@ let container =document.createElement("div")
 container.className="container"
 let loader=document.getElementById("loader")
 function fetchData(){
-    fetch("https://fakestoreapi.com/products")
-            .then(res=>res.json())
-            .then(data=>displayData(data))
-            .catch(err=>console.error(err))
+    setTimeout(() => {  // Adding delay
+        fetch("https://fakestoreapi.com/products")
+            .then(res => res.json())
+            .then(data => displayData(data))
+            .catch(err => console.error(err));
+    }, 3000);
 
 }
 
