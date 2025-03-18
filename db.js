@@ -1,6 +1,6 @@
 let container =document.createElement("div")
 container.className="container"
-let loader=document.getElementById("loader")
+
 function fetchData(){
     setTimeout(() => {  // Adding delay
         fetch("https://fakestoreapi.com/products")
@@ -12,6 +12,7 @@ function fetchData(){
 }
 
 function displayData(products){
+    
     for(let obj of products){
         let item=document.createElement("div")
         item.className="item"
